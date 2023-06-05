@@ -46,6 +46,6 @@ This figure shows the mean squared error for all predictions in the training/val
 
 ![](./fig_store/fig_diagnostic_logspectra_mean_squared_error.png)
 
-This figure shows the same as the previous one, but for the percentage error of the power spectrum, instead of the mean squared error of the log10 of the power spectrum. The percentage errors on the spectra are larger than on its log because the exponentiation amplifies residual errors in the training (the training is done in log10 spectra). A simple dense neural network with 3 64-node hidden layers is able to achieve a mean spectra error of about 1%. Note however that many examples display errors of 5%. This happens in the range of $k$ corresponding to the baryon acoustic oscillations.
+This figure shows the same as the previous one, but for the percentage error of the power spectrum, instead of the mean squared error of the log10 of the power spectrum. The percentage errors on the spectra are larger than on its log because the exponentiation amplifies residual errors in the training (the training is done in log10 spectra). A simple dense neural network with 3 64-node hidden layers is able to achieve a mean spectra error of about 1%. Note however that many examples display errors of 5%; this happens in the range of $k$ corresponding to the baryon acoustic oscillations.
 
 ![](./fig_store/fig_diagnostic_spectra_relative_difference.png)
