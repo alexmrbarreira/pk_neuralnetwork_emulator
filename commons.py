@@ -33,22 +33,28 @@ n_test  = int(1e2)
 # Parameter order [H0, Omega_b h^2, Omega_c h^2, ln(1e10 As), ns,  z]
 #                 [ 0,      1     ,      2     ,       3    ,  4,  5] 
 # H0
-H0_min      = 50.
-H0_max      = 100.
+H0_symbol      = r'$H_0 \left[{\rm km/s/Mpc}\right]$'
+H0_min         = 50.
+H0_max         = 100.
 # Omega_b h^2
-ombh2_min   = 0.020
-ombh2_max   = 0.024
+ombh2_symbol   = r'$\Omega_b h^2$'
+ombh2_min      = 0.020
+ombh2_max      = 0.024
 # Omega_c h^2
-omch2_min   = 0.100
-omch2_max   = 0.150
+omch2_symbol   = r'$\Omega_c h^2$'
+omch2_min      = 0.100
+omch2_max      = 0.150
 # ln(1e10 As)
-lnAse10_min = 1.5
-lnAse10_max = 4.0
+lnAse10_symbol = r'${\rm ln}(10^{10}A_s)$'
+lnAse10_min    = 1.5
+lnAse10_max    = 4.0
 # ns
-ns_min      = 0.90
-ns_max      = 1.10
+ns_symbol      = r'$n_s$'
+ns_min         = 0.90
+ns_max         = 1.10
 # z
-z_min       = 0.0
-z_max       = 10. 
+z_symbol       = r'$z$'
+z_min          = 0.0
+z_max          = 10. 
 
 

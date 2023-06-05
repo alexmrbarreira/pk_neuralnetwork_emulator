@@ -26,17 +26,47 @@ print ('Shapes of testing data')
 print ('Parameters (features):', np.shape(params_test))
 print ('Spectra (labels):'     , np.shape(log10pk_test))
 
-model = tf.keras.models.load_model('model_store/model_1.h5')
+model_nn = tf.keras.models.load_model('model_store/model_1.h5')
 
 print ('')
-print (model.summary())
+print (model_nn.summary())
 print ('')
 
 # Model predictions 
-pred_train = model.predict(params_train)
-pred_valid = model.predict(params_valid)
-pred_test  = model.predict(params_test)
+pred_train = model_nn.predict(params_train)
+pred_valid = model_nn.predict(params_valid)
+pred_test  = model_nn.predict(params_test)
 
+# ==========================================================================
+# Time performance test: NN vs CAMB 
+# ==========================================================================
+
+# Choose set of parameters to make a prediction
+params_values = [70., 0.022, 0.13, 3.0, 0.96, 1.1]
+
+# Time the NN calculation
+t0 = time.time()
+model_nn.predict([params_values])
+t1 = time.time()
+print ('')
+print ('For a single parameter evaluation:')
+print ('The NN model took', t1-t0, 'seconds')
+
+# Time the CAMB calculation
+pars = camb.CAMBparams()
+t0   = time.time()
+pars.set_cosmology(H0=params_values[0], ombh2=params_values[1], omch2=params_values[2], mnu=mnu, omk=omk)
+pars.InitPower.set_params(As=np.exp(params_values[3])*1.0e-10, ns=params_values[4])
+pars.set_matter_power(redshifts=[params_values[5]], kmax=kmax)
+# Get the nonlinear power spectrum
+pars.NonLinear    = model.NonLinear_both
+results           = camb.get_results(pars)
+k, z, pk          = results.get_matter_power_spectrum(minkh=kmin, maxkh = kmax, npoints = nkpoints)
+t1   = time.time()
+print ('CAMB took', t1-t0, 'seconds')
+print ('')
+
+quit()
 # ==========================================================================
 # Plot parameters 
 # ==========================================================================
@@ -58,6 +88,15 @@ max_y = 0.1
 min_y2 = 1.0e-8
 max_y2 = 1.0e-2
 
+def annotate_params(params, ind):
+    fonthere = 18
+    plt.annotate(H0_symbol      + '=' + "%.2f" % params[ind][0], xy = (0.10, 0.40), xycoords = 'axes fraction', c = 'k', fontsize = fonthere)
+    plt.annotate(ombh2_symbol   + '=' + "%.5f" % params[ind][1], xy = (0.10, 0.33), xycoords = 'axes fraction', c = 'k', fontsize = fonthere)
+    plt.annotate(omch2_symbol   + '=' + "%.3f" % params[ind][2], xy = (0.10, 0.26), xycoords = 'axes fraction', c = 'k', fontsize = fonthere)
+    plt.annotate(lnAse10_symbol + '=' + "%.2f" % params[ind][3], xy = (0.10, 0.19), xycoords = 'axes fraction', c = 'k', fontsize = fonthere)
+    plt.annotate(ns_symbol      + '=' + "%.2f" % params[ind][4], xy = (0.10, 0.12), xycoords = 'axes fraction', c = 'k', fontsize = fonthere)
+    plt.annotate(z_symbol       + '=' + "%.1f" % params[ind][5], xy = (0.10, 0.05), xycoords = 'axes fraction', c = 'k', fontsize = fonthere)
+
 # ==========================================================================
 # Inspection of specific case 
 # ==========================================================================
@@ -68,38 +107,41 @@ fig0.subplots_adjust(left=0.10, right=0.97, top=0.92, bottom=0.15, wspace = 0.35
 panel = fig0.add_subplot(1,3,1)
 plt.title('Training accuracy; example ' + str(ind_check), fontsize = title_font)
 plt.plot(kk, log10pk_train[ind_check], c = 'k', linewidth = 2., linestyle = 'solid', label = 'True')
-plt.plot(kk, pred_train[ind_check]   , c = 'b', linewidth = 2., linestyle = 'solid', label = 'Prediction')
+plt.plot(kk, pred_train[ind_check]   , c = 'b', linewidth = 2., linestyle = 'dashed', label = 'Prediction')
 plt.xlim(kmin, kmax)
 plt.ylim(-3., 4.)
 plt.xscale('log')
 plt.xlabel(r'$k\ \left[h/{\rm Mpc}\right]$' , fontsize = labelsize)
 plt.ylabel(r'${\rm log}_{10}P(k)\ \left[{\rm Mpc}^3/h^3\right]$'          , fontsize = labelsize)
 plt.tick_params(length=ticklength_major, width=tickwidth , bottom=True, top=True, left=True, right=True, direction = 'in', which = 'major', pad = tickpad, labelsize = ticksize)
-params = {'legend.fontsize': legend_font}; plt.rcParams.update(params); plt.legend(loc = 'lower left', ncol = 1)
+params = {'legend.fontsize': legend_font}; plt.rcParams.update(params); plt.legend(loc = 'upper right', ncol = 1)
+annotate_params(params_train, ind_check)
 
 # Validation accuracy
 panel = fig0.add_subplot(1,3,2)
 plt.title('Validation accuracy; example ' + str(ind_check), fontsize = title_font)
 plt.plot(kk, log10pk_valid[ind_check], c = 'k', linewidth = 2., linestyle = 'solid', label = 'True')
-plt.plot(kk, pred_valid[ind_check]   , c = 'g', linewidth = 2., linestyle = 'solid', label = 'Prediction')
+plt.plot(kk, pred_valid[ind_check]   , c = 'g', linewidth = 2., linestyle = 'dashed', label = 'Prediction')
 plt.xlim(kmin, kmax)
 plt.ylim(-3., 4.)
 plt.xscale('log')
 plt.xlabel(r'$k\ \left[h/{\rm Mpc}\right]$' , fontsize = labelsize)
 plt.tick_params(length=ticklength_major, width=tickwidth , bottom=True, top=True, left=True, right=True, direction = 'in', which = 'major', pad = tickpad, labelsize = ticksize)
-params = {'legend.fontsize': legend_font}; plt.rcParams.update(params); plt.legend(loc = 'lower left', ncol = 1)
+params = {'legend.fontsize': legend_font}; plt.rcParams.update(params); plt.legend(loc = 'upper right', ncol = 1)
+annotate_params(params_valid, ind_check)
 
 # Testing accuracy
 panel = fig0.add_subplot(1,3,3)
 plt.title('Testing accuracy; example ' + str(ind_check), fontsize = title_font)
 plt.plot(kk, log10pk_test[ind_check], c = 'k', linewidth = 2., linestyle = 'solid', label = 'True')
-plt.plot(kk, pred_test[ind_check]   , c = 'r', linewidth = 2., linestyle = 'solid', label = 'Prediction')
+plt.plot(kk, pred_test[ind_check]   , c = 'r', linewidth = 2., linestyle = 'dashed', label = 'Prediction')
 plt.xlim(kmin, kmax)
 plt.ylim(-3., 4.)
 plt.xscale('log')
 plt.xlabel(r'$k\ \left[h/{\rm Mpc}\right]$' , fontsize = labelsize)
 plt.tick_params(length=ticklength_major, width=tickwidth , bottom=True, top=True, left=True, right=True, direction = 'in', which = 'major', pad = tickpad, labelsize = ticksize)
-params = {'legend.fontsize': legend_font}; plt.rcParams.update(params); plt.legend(loc = 'lower left', ncol = 1)
+params = {'legend.fontsize': legend_font}; plt.rcParams.update(params); plt.legend(loc = 'upper right', ncol = 1)
+annotate_params(params_test, ind_check)
 
 # ==========================================================================
 # Relative difference of the spectra 
