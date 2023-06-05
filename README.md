@@ -5,7 +5,7 @@ NOTE: this was not extensively optimized, and so as is, it should not be used to
 
 ### Table of contents
 - [Dependencies](#dependencies)
-- [Utilizing the scripts](#utilizing-the-scripts)
+- [Overview of the scripts](#overview-of-the-scripts)
 - [Emulator performance](#results-overview-for-different-cars-same-country)
 
 ### Dependencies
@@ -14,7 +14,9 @@ NOTE: this was not extensively optimized, and so as is, it should not be used to
 - numpy, scipy and matplotlib
 - tensorflow
 
-### Utilizing the scripts
+### Overview of the scripts
 
-#### commons.py
-This 
+##### commons.py
+This is a parameter file "common" to all other scripts (imported by all). Modify this to set prior parameter ranges, number of training examples and other spectra details.
+
+
