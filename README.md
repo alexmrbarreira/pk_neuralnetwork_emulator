@@ -30,7 +30,7 @@ Executing this script as *python generate_data.py* will generate three latin hyp
 This script defines the neural network model using Keras/Tensorflow and the training parameters (batch size, number of epochs, etc). The default is a dense neural network with 3 hidden layers, each with 64 nodes. Execute it as *python train_model.py* to perform the training. The trained model is saved in *model_store/*. This file can be modified to explore other network types/architectures.
 
 ##### plot_performance_model.py
-This script loads the trained model and plots a few diagnostics of its peformance: (i) the true vs. predicted results for a specific training/validation/testing example; (ii) the mean squared error for all the training/validation/testing examples; and (iii) the percentage for the same examples. Executing it as *python plot_performance_model.py* will generate the figures (see below) and save them in fig_store/.
+This script loads the trained model and plots a few diagnostics of its peformance (shown below). Executing it as *python plot_performance_model.py* will generate the figures and save them in fig_store/.
 
 ### Performance overview
 
