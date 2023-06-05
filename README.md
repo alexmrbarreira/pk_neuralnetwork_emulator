@@ -10,6 +10,6 @@ NOTE: this was not extensively optimized, and so as is, it should not be used to
 
 ### Dependencies
 
-- CAMB code (https://camb.readthedocs.io/en/latest/ ; pip install camb)
+- CAMB code (https://camb.readthedocs.io/en/latest/ ; $pip install camb)
 - numpy, scipy and matplotlib
 - tensorflow
