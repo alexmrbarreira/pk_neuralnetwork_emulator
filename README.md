@@ -22,5 +22,7 @@ NOTE: this was not extensively optimized, and so as is, it should not be used to
 This is a parameter file "common" to all other scripts (imported by all). Modify this to set prior parameter ranges, number of training examples and other spectra details.
 
 ##### generate_data.py
-Executing this script as *python generate_data.py* will generate three latin hypercubes for training, validation and testing sets.
+Executing this script as *python generate_data.py* will generate three latin hypercubes that will be used for training, validation and testing sets. The data is saved in *data_store/*.
 
+##### train_model.py
+This script defines the neural network model using Keras/Tensorflow and the training parameters (batch size, number of epochs, etc). Execute it as *python train_model.py* to perform the training. The trained model is saved in *model_store/*.
