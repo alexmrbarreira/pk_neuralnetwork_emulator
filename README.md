@@ -1,7 +1,7 @@
 # pk_neuralnetwork_emulator
 A set of python scripts for astrophysicists/cosmologists that utilizes a neural network to emulate the power spectrum of nonlinear matter density fluctuations in the Universe. It works as a high-dimensional parameter space interpolator aimed to speed up predictions as a function of cosmological parameters.
 
-The model takes as input the values of the parameters $H_0$, $\Omega_b h^2$, $\Omega_c h^2$, ${\rm ln}A_s10^{10}$, $n_s$ and $z$.
+The model takes as input the values of the parameters $H_0$, $\Omega_b h^2$, $\Omega_c h^2$, ${\rm ln}A_s10^{10}$, $n_s$ and $z$. By default, the model is set to be a dense neural network with 3 64-node hidden layers. These settings can be however modified by the user.
 
 NOTE: this was not extensively optimized, and so as is, it should not be used to produce results for research papers. Rather it can work as a starting point to explore other architectures and training ranges/strategies, generalize to other cosmology quantities (polyspectra, halo mass function), or simply illustrating how to use *python* and *tensorflow* in a concrete cosmology emulation application.
 
