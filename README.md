@@ -36,7 +36,7 @@ This script loads the trained model and plots a few diagnostics of its peformanc
 
 This figure shows an example of a training history where the learning rate is progressively reduced (using the *callback* method) to keep "slowly-cooking" the network and improve the optimization of its hyperparameters. 
 
-![](./fig_store/fig_training_history.png | width = 50)
+![](./fig_store/fig_training_history.png width=50)
 
 This figure compares the true spectra (black) and the neural network predictions (colors) for the first example in the training/validation/testing sets. Any differences cannot be distinguished by eye in the scale of the plot.
 
