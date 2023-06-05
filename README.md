@@ -12,7 +12,7 @@ NOTE: this was not extensively optimized, and so as is, it should not be used to
 
 ### Dependencies
 
-- CAMB code (*pip install camb* ; https://camb.readthedocs.io/en/latest/)
+- CAMB code (*pip install camb* ; https://camb.readthedocs.io/en/latest/) to compute the cosmology power spectra
 - numpy, scipy and matplotlib
 - tensorflow
 
