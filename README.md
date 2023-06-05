@@ -34,6 +34,6 @@ This script loads the trained model and plots a few diagnostics of its peformanc
 
 ### Performance overview
 
-This figure
+This figure shows an example of a training history where the learning rate is progressively reduced (using the *callback* method) to keep "slowly-cooking" the network and improve the optimization of its hyperparameters. 
 
 ![](./fig_store/fig_training_history.png)
