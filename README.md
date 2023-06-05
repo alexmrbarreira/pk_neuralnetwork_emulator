@@ -42,7 +42,7 @@ This figure compares the true spectra (black) and the neural network predictions
 
 ![](./fig_store/fig_diagnostic_single_case.png)
 
-This figure shows the mean squared error for all predictions in the training/validation/testing sets (grey); the colors shown the mean accross all examples. The yellow line marks the mean squared error of the single examples shown in the figure above.
+This figure shows the mean squared error for all predictions in the training/validation/testing sets (grey); the colors shown the mean across all examples. The yellow line marks the mean squared error of the single examples shown in the figure above.
 
 ![](./fig_store/fig_diagnostic_logspectra_mean_squared_error.png)
 
