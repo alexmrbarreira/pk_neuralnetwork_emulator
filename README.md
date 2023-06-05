@@ -10,7 +10,6 @@ NOTE: this was not extensively optimized, and so as is, it should not be used to
 
 ### Dependencies
 
-- numpy and matplotlib
-- pandas
-- bs4 - python web scraping library
-- firefox browser (optional)
+- CAMB code (https://camb.readthedocs.io/en/latest/ ; pip install camb)
+- numpy, scipy and matplotlib
+- tensorflow
