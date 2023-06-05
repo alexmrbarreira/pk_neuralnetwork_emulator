@@ -18,7 +18,7 @@ NOTE: this was not extensively optimized, and so as is, it should not be used to
 
 Note: does not require GPU access.
 
-### Overview of the scripts
+### Script overview
 
 ##### commons.py
 This is a parameter file "common" to all other scripts (imported by all). Modify this to set prior parameter ranges, number of training examples and other spectra details.
