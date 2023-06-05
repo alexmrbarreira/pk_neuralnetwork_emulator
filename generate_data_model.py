@@ -13,7 +13,7 @@ lh_valid   = lh_sampler.random(n=int(n_valid))
 lh_test    = lh_sampler.random(n=int(n_test))
 
 # ==========================================================================
-# Compute nonlinear power spectrum for training/validation/testing
+# Compute nonlinear power spectrum for training/validation/testing using CAMB
 # ==========================================================================
 
 def generate_data(lh, n_examples, string_name):

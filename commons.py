@@ -29,8 +29,9 @@ n_train = int(1e3)
 n_valid = int(n_train*0.2)
 n_test  = int(1e2)
 
-# parameter order [H0, Omega_b h^2, Omega_c h^2, ln(1e10 As), ns, z]
-#                 [ 0,      1     ,      2     ,       3    ,  4, 5] 
+# Cosmological parameter priors (redshift z, is treated as a parameter to emulate too)
+# Parameter order [H0, Omega_b h^2, Omega_c h^2, ln(1e10 As), ns,  z]
+#                 [ 0,      1     ,      2     ,       3    ,  4,  5] 
 # H0
 H0_min      = 50.
 H0_max      = 100.
