@@ -34,4 +34,6 @@ This script loads the trained model and plots a few diagnostics of its peformanc
 
 ### Performance overview
 
-![](./fig_store_de/fig_2016_kombi_volkswagen_golf.png)
+This figure
+
+![](./fig_store/fig_training_history.png)
