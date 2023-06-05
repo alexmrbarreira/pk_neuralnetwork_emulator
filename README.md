@@ -16,7 +16,7 @@ NOTE: this was not extensively optimized, and so as is, it should not be used to
 - numpy, scipy and matplotlib
 - tensorflow
 
-Note: does not require GPU access.
+Note: the code works also on CPUs.
 
 ### Script overview
 
