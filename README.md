@@ -31,3 +31,7 @@ This script defines the neural network model using Keras/Tensorflow and the trai
 
 ##### plot_performance_model.py
 This script loads the trained model and plots a few diagnostics of its peformance: (i) the true vs. predicted results for a specific training/validation/testing example; (ii) the mean squared error for all the training/validation/testing examples; and (iii) the percentage for the same examples. Executing it as *python plot_performance_model.py* will generate the figures and save them in fig_store/.
+
+### Performance overview
+
+![](./fig_store_de/fig_2016_kombi_volkswagen_golf.png)
