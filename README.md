@@ -38,7 +38,7 @@ This figure shows an example of a training history where the learning rate is pr
 
 ![](./fig_store/fig_training_history.png)
 
-This figure compares the true spectra (black) and the neural network predictions (colors) for the first example in the training/validation/testing sets. Any differences cannot be distinguished by eye in the scale of the plot.
+This figure compares the true spectra (black) and the neural network predictions (colors) for the first example in the training/validation/testing sets. Any differences cannot be distinguished by eye in the scale of the plot. However, the NN prediction is over 10 times faster than out-of-the-box CAMB.
 
 ![](./fig_store/fig_diagnostic_single_case.png)
 
