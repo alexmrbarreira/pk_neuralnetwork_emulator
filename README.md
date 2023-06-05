@@ -1,9 +1,9 @@
 # car_website_scraping
 A set of python scripts for astrophysicists/cosmologists that utilizes a neural network to emulate the power spectrum of nonlinear matter density fluctuations in the Universe. It works as a high-dimensional parameter space interpolator aimed to speed up predictions as a function of cosmological parameters.
 
-The model takes as input the values of the parameters H0, $\Omega_b h^2$, $\Omega_c h^2$, ${\rm ln}A_s10^{10}$, $n_s$ and $z$.
+The model takes as input the values of the parameters $H_0$, $\Omega_b h^2$, $\Omega_c h^2$, ${\rm ln}A_s10^{10}$, $n_s$ and $z$.
 
-NOTE: this was not extensively optimized, and so as is, it should not be used to produce results for research papers. Rather it can work as a starting point to explore other architectures and training strategies, generalize to other cosmological quantities (polyspectra, halo mass function, etc.), or simply illustrating how to use *python* and *tensorflow* in a concrete cosmology emulation application.
+NOTE: this was not extensively optimized, and so as is, it should not be used to produce results for research papers. Rather it can work as a starting point to explore other architectures and training ranges/strategies, generalize to other cosmological quantities (polyspectra, halo mass function, etc.), or simply illustrating how to use *python* and *tensorflow* in a concrete cosmology emulation application.
 
 ### Table of contents
 - [Dependencies](#dependencies)
