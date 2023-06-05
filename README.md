@@ -5,7 +5,7 @@ NOTE: this was not extensively optimized, and so as is, it should not be used to
 
 ### Table of contents
 - [Dependencies](#dependencies)
-- [Running the scripts](#running-the-scripts)
+- [Utilizing the scripts](#utilizing-the-scripts)
 - [Emulator performance](#results-overview-for-different-cars-same-country)
 
 ### Dependencies
@@ -13,3 +13,8 @@ NOTE: this was not extensively optimized, and so as is, it should not be used to
 - CAMB code (*pip install camb* ; https://camb.readthedocs.io/en/latest/)
 - numpy, scipy and matplotlib
 - tensorflow
+
+### Utilizing the scripts
+
+# commons.py
+This 
